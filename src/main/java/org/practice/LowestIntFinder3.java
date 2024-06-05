@@ -10,14 +10,12 @@ public class LowestIntFinder3 {
 
     public static void main(String[] args) {
 
-        // create set 2
-        List<Integer> set2 = new ArrayList<>();
-        for (int i = 100; i <= 200; i++) {
-            set2.add(i);
+        // create set 2 with random values
+        Set<Integer> set2 = new HashSet<>();
+        Random random = new Random();
+        while (set2.size() < 100) {
+            set2.add(100 + random.nextInt(200)); // Adjust range as needed
         }
-
-        // shuffle set 2
-        Collections.shuffle(set2);
 
         // assume we start (timing) with an unsorted set2
         long start = System.currentTimeMillis();
@@ -34,7 +32,7 @@ public class LowestIntFinder3 {
 
         // step 2: find the next highest value in set1
         for (int i = 100; i <= 1000000; i++) {
-            if (i > highVal) {
+            if (!set2.contains(i)) {
                 System.out.println(i);
                 break;
             }
