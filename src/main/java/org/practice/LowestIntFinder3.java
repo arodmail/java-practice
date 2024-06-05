@@ -20,16 +20,6 @@ public class LowestIntFinder3 {
         // assume we start (timing) with an unsorted set2
         long start = System.currentTimeMillis();
 
-        // make one pass
-        // step 1: find the highest value in set2
-
-        int highVal = 0;
-        for (Integer val: set2) {
-            if (val > highVal) {
-                highVal = val;
-            }
-        }
-
         // step 2: find the next highest value in set1
         for (int i = 100; i <= 1000000; i++) {
             if (!set2.contains(i)) {
